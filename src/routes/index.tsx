@@ -6,6 +6,15 @@ import { Layout } from "../layout/Layout";
 const Cardapio = lazy(() =>
   import("../pages/Cardapio").then((module) => ({ default: module.Cardapio }))
 );
+const Pedidos = lazy(() =>
+  import("../pages/Pedidos").then((module) => ({ default: module.Pedidos }))
+);
+const Compras = lazy(() =>
+  import("../pages/Compras").then((module) => ({ default: module.Compras }))
+);
+const Usuario = lazy(() =>
+  import("../pages/Usuario").then((module) => ({ default: module.Usuario }))
+);
 const SplashScreen = lazy(() =>
   import("../layout/SplashScreen").then((module) => ({
     default: module.SplashScreen,
@@ -22,6 +31,21 @@ export const layoutRoutes = [
     title: "Cardapio",
     path: "/cardapio",
     element: <Cardapio />,
+  },
+  {
+    title: "Pedidos",
+    path: "/pedidos",
+    element: <Pedidos />,
+  },
+  {
+    title: "Compras",
+    path: "/compras",
+    element: <Compras />,
+  },
+  {
+    title: "Usuario",
+    path: "/usuario",
+    element: <Usuario />,
   },
 ];
 

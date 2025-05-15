@@ -1,7 +1,8 @@
 import { motion, useAnimation } from "motion/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import tableImage from "../assets/images/tableImage.png";
+import Pattern from "../assets/images/pattern.svg";
+import { CleanLoading } from "../components/CleanLoading";
 import { postEstablishmentData } from "../services/EstablishmentData";
 
 export const SplashScreen = () => {
@@ -23,6 +24,8 @@ export const SplashScreen = () => {
         EstablishmentName: establishment,
         clientTable: table,
       });
+
+      console.log(data);
     }
   };
 
@@ -65,47 +68,45 @@ export const SplashScreen = () => {
 
   useEffect(() => {
     if (animatedEnd === true) {
-      // navigate(`/cardapio?establishment=${establishment}&table=${table}`);
+      navigate(`/cardapio?establishment=${establishment}&table=${table}`);
     }
   }, [animatedEnd]);
 
   return (
-    <div className="flex flex-col items-center relative w-full h-screen p-8 bg-linear-to-b/shorter from-zinc-700 via-zinc-700/80 to-zinc-700">
-      {establishment && table ? (
-        <div className="flex flex-col">
-          <div className="flex relative flex-col w-full items-center justify-center mt-25">
-            <motion.p
-              className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 -translate-x-1/2"
-              initial={{ y: 0, opacity: 1 }}
-              animate={{ y: -60, opacity: 0 }}
-              transition={{ duration: 1, delay: 2, ease: "easeInOut" }}
-            >
-              Seja bem vindo!
-            </motion.p>
-            <motion.p
-              className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 -translate-x-1/2"
-              initial={{ y: 40, opacity: 0 }}
-              animate={controls1}
-            >
-              Limpando sua mesa...
-            </motion.p>
-            <motion.p
-              className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 -translate-x-1/2"
-              initial={{ y: 40, opacity: 0 }}
-              animate={controls2}
-            >
-              Quase limpo...
-            </motion.p>
-          </div>
+    <div className="flex flex-col items-center justify-center relative w-full h-screen p-8 bg-linear-to-b from-[#042B3D]/95 via-primary/70 to-[#06364d]/95">
+      <img src={Pattern} className="absolute top-0 left-0 h-full w-full" />
 
-          <img
-            src={tableImage}
-            alt=""
-            className="absolute bottom-20 left-1/2 -translate-x-1/2 w-3/4"
-          />
+      {establishment && table ? (
+        <div className="flex relative flex-col w-full items-center justify-center z-20">
+          <motion.p
+            className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 bottom-1/2 -translate-x-1/2"
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: -60, opacity: 0 }}
+            transition={{ duration: 1, delay: 2, ease: "easeInOut" }}
+          >
+            Seja bem vindo!
+          </motion.p>
+          <motion.p
+            className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 bottom-1/2 -translate-x-1/2"
+            initial={{ y: 40, opacity: 0 }}
+            animate={controls1}
+          >
+            Limpando sua mesa...
+          </motion.p>
+          <motion.p
+            className="text-white font-semibold font-montserrat text-2xl text-center text-nowrap absolute left-1/2 bottom-1/2 -translate-x-1/2"
+            initial={{ y: 40, opacity: 0 }}
+            animate={controls2}
+          >
+            Quase limpo...
+          </motion.p>
+
+          <div className="flex flex-col mt-20">
+            <CleanLoading />
+          </div>
         </div>
       ) : (
-        <div className="flex flex-col text-center gap-4 text-white">
+        <div className="flex flex-col text-center gap-4 text-white z-20">
           <p className="text-2xl font-bold font-montserrat">
             Mesa não encontrada
           </p>
