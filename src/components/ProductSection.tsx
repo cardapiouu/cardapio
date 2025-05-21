@@ -30,7 +30,7 @@ export const ProductSection = ({
         </p>
       )}
 
-      <div className="flex flex-col w-full mt-4 bg-gray-100 hover:bg-gray-50">
+      <div className="flex flex-col gap-2 w-full mt-4 bg-gray-100 hover:bg-gray-50">
         {products.map((item) => (
           <ProductComponent item={item} />
         ))}

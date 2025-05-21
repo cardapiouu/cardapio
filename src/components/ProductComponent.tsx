@@ -4,7 +4,7 @@ interface ProductComponentProps {
 
 export function ProductComponent({ item }: ProductComponentProps) {
   return (
-    <div className="flex px-2 pr-4 py-2 border-b border-gray-300 last:border-none">
+    <div className="flex pr-4 border-b pl-0 border-gray-300 last:border-none">
       <div className="relative w-[45%] h-40 overflow-hidden rounded-r-xl">
         <img
           src={item.imageUrl}
