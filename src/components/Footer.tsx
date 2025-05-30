@@ -28,7 +28,7 @@ export const Footer = () => {
   }, [pathname]);
 
   return (
-    <div className="grid grid-cols-4 items-center w-full h-[9vh] sticky bottom-0 bg-primary rounded-t-xl shadow-[0px_-1px_2px_4px_rgba(0,0,0,0.25)] z-[100]">
+    <div className="grid grid-cols-4 items-center w-full h-[9vh] fixed bottom-0 bg-primary rounded-t-xl shadow-[0px_-1px_2px_4px_rgba(0,0,0,0.25)] z-[100]">
       <div
         onClick={() => navigate("/cardapio")}
         className="flex items-center w-full h-full cursor-pointer"

@@ -1,11 +1,18 @@
+import { useNavigate } from "react-router-dom";
+
 interface ProductComponentProps {
   item: { imageUrl: string; name: string; description: string; price: number };
 }
 
 export function ProductComponent({ item }: ProductComponentProps) {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex pr-4 border-b pl-0 border-gray-300 last:border-none">
-      <div className="relative w-[45%] h-40 overflow-hidden rounded-r-xl">
+    <div
+      onClick={() => navigate(`/cardapio/${item.name}`)}
+      className="flex p-4 border-b border-gray-300 last:border-none"
+    >
+      <div className="relative w-[45%] h-34 overflow-hidden rounded-xl">
         <img
           src={item.imageUrl}
           className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105 hover:brightness-110"
@@ -22,12 +29,12 @@ export function ProductComponent({ item }: ProductComponentProps) {
         </div>
 
         <div className="flex w-full justify-between items-center">
-          <p className="text-lg font-semibold text-neutral-600 w-[40%]">
+          <p className="text-lg font-semibold text-neutral-600 w-full">
             R$ {item.price.toFixed(2).replace(".", ",")}
           </p>
-          <button className="bg-primary text-white py-1 font-semibold text-sm font-roboto w-[60%] rounded-full">
+          {/* <button className="bg-primary text-white py-1 font-semibold text-sm font-roboto w-[60%] rounded-full">
             Escolher
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

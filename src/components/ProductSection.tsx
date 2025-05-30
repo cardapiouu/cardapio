@@ -21,7 +21,7 @@ export const ProductSection = ({
 }: ProductSectionProps) => {
   return (
     <section className="flex flex-col w-full py-4 first:pt-4 pt-0" ref={ref}>
-      <h2 className="font-montserrat font-bold text-xl px-4 w-full text-neutral-500">
+      <h2 className="font-montserrat font-bold text-xl px-4 w-full text-primary">
         {sectionTitle}
       </h2>
       {sectionDescription && (
@@ -30,7 +30,7 @@ export const ProductSection = ({
         </p>
       )}
 
-      <div className="flex flex-col gap-2 w-full mt-4 bg-gray-100 hover:bg-gray-50">
+      <div className="flex flex-col gap-2 w-full mt-4 bg-gray-200 hover:bg-gray-50">
         {products.map((item) => (
           <ProductComponent item={item} />
         ))}

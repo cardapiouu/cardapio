@@ -15,6 +15,9 @@ const Compras = lazy(() =>
 const Usuario = lazy(() =>
   import("../pages/Usuario").then((module) => ({ default: module.Usuario }))
 );
+const Produto = lazy(() =>
+  import("../pages/Produto").then((module) => ({ default: module.Produto }))
+);
 const SplashScreen = lazy(() =>
   import("../layout/SplashScreen").then((module) => ({
     default: module.SplashScreen,
@@ -46,6 +49,11 @@ export const layoutRoutes = [
     title: "Usuario",
     path: "/usuario",
     element: <Usuario />,
+  },
+  {
+    title: "Produto",
+    path: "/cardapio/:name",
+    element: <Produto />,
   },
 ];
 

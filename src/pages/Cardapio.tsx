@@ -90,7 +90,7 @@ export const Cardapio = () => {
         category={enterpriseCategories}
         focused={focusedCategory}
         setFocused={setFocusedCategory}
-        type="icon"
+        type="image"
       />
 
       <div className="flex flex-col">
