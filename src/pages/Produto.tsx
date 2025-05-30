@@ -9,7 +9,7 @@ const LiItem = ({ sabor }: { sabor: string }) => {
   const addAmount = () => {
     setAmount((prev) => {
       switch (prev) {
-        case 5:
+        case 4:
           return prev;
         default:
           return prev + 1;
